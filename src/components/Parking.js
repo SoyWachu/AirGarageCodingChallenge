@@ -1,4 +1,5 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 import NotAvailable from "../assets/notAvailable.jpg";
 
 export default function Parking({
@@ -25,7 +26,12 @@ export default function Parking({
           <span>Address: {address.join(" ")}</span>
           <p>Rating: {rating}</p>
           <p>Review count: {review}</p>
-          <p>Score: {Math.round(score)}</p>
+          <ReactStars
+            count={5}
+            size={24}
+            value={Math.round(score)}
+            activeColor="#ffd700"
+          />
         </div>
       </div>
     </div>

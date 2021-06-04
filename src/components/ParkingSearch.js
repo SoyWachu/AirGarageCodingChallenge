@@ -9,13 +9,17 @@ export default function ParkingSearch() {
   const [currentPage, setCurrentPage] = useState(1);
   const [parkingsPerPage] = useState(16);
 
+  const sortedData = data.sort((a, b) => (a.rating > b.rating ? 1 : -1));
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   const indexOfLastParking = currentPage * parkingsPerPage;
   const indexOfFirstParking = indexOfLastParking - parkingsPerPage;
-  const currentParkings = data.slice(indexOfFirstParking, indexOfLastParking);
+  const currentParkings = sortedData.slice(
+    indexOfFirstParking,
+    indexOfLastParking
+  );
 
   return (
     <div>
